@@ -6,9 +6,9 @@
  
  # Things to Remember
 
- #git pull first to update
- #then save your code and then git add .
- #next git commit -m " " to add a comment
- #finally git push to push everything to the server
- 
+ #git pull first to update \n
+ #then save your code and then git add .\n
+ #next git commit -m " " to add a comment\n
+ #finally git push to push everything to the server\n
+
  #hello
