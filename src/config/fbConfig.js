@@ -1,18 +1,18 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 var config = {
-    apiKey: "AIzaSyC0klb2etNBB48LBEJzaBNPaJ261UIxU3w",
-    authDomain: "tyme-25aa9.firebaseapp.com",
-    databaseURL: "https://tyme-25aa9.firebaseio.com",
-    projectId: "tyme-25aa9",
-    storageBucket: "tyme-25aa9.appspot.com",
-    messagingSenderId: "141863250977",
-    appId: "1:141863250977:web:53180881a62f040bab4760"
-  };
+  apiKey: "AIzaSyAJp8PRgspsj4QtwZTP9NIMiu59mwoprOU",
+  authDomain: "tyme150.firebaseapp.com",
+  databaseURL: "https://tyme150.firebaseio.com",
+  projectId: "tyme150",
+  storageBucket: "",
+  messagingSenderId: "293508454825",
+  appId: "1:293508454825:web:a4710bf94d5bbb9939ccb8"
+};
 
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
-export default firebase 
+export default firebase;
