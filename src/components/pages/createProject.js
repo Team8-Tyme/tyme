@@ -17,16 +17,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Dashboard = ({ projects, auth })  => {
+const CreateProject = () => {
   const classes = useStyles();
   return (
     <div>
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
-            blah blah blah
+            test create
         </Typography>
         <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
+          test
         </Typography>
       </Paper>
     </div>
@@ -34,12 +34,4 @@ const Dashboard = ({ projects, auth })  => {
 }
 
 
-export default compose(
-    firestoreConnect([
-    { collection: 'projects'},
-    ]),
-    connect((state, props) => ({
-        auth: state.firebase.auth,
-        projects: state.firestore.ordered.projects
-    }))
-)(Dashboard)
+export default CreateProject
