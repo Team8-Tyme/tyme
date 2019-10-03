@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navigation'
-import Dashboard from './components/dashboard/Dashboard'
+import { Router, Switch, Route } from 'react-router-dom'
+import { createBrowserHistory } from "history";
+import Navigation from './components/layout/Navigation'
 import SignIn from './components/auth/LoginPage'
 import SignUp from './components/auth/SignupPage'
 
+
+const history = createBrowserHistory();
 
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <div className="App">
-          <Navbar/>
             <Switch>
-              <Route exact path='/'component={Dashboard} />
               <Route path='/login' component={SignIn} />
               <Route path='/signup' component={SignUp} />
+              <Route path='/'component={Navigation} />
             </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

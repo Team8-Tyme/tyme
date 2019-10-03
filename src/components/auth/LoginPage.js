@@ -31,16 +31,13 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#FFC107"
   },
   form: {
-    width: "100%",
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "black",
-    color: "white",
-    "&:hover": {
-      backgroundColor: "rgb(255,193,7)"
-    }
+    color: "white"
   }
 }));
 

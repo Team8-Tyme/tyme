@@ -1,22 +1,26 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { signOut } from '../../store/actions/authActions';
 import Button from '@material-ui/core/Button';
 
 
+
 export const SignedInLinks = () => {
   const dispatch = useDispatch();
-
   return (
-    <div>
-      <ul>
-        <li><Button onClick={() => dispatch(signOut())}> Log Out</Button></li>
-        {/* <li><NavLink to='/' className="btn btn-floating pink lighten-1">
-          {props.profile.initials}
-        </NavLink></li> */}
-      </ul>
-    </div>
+    <Button 
+    onClick={() => dispatch(signOut())}
+    size="small"
+    variant="contained" 
+    style={{
+        backgroundColor: '#202024',
+        color: "#FFF",
+        marginLeft: "auto",
+        marginRight: -13,
+        padding: 11,
+        fontSize: 10
+    }}
+    > Log Out</Button>
   )
 }
 
