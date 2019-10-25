@@ -1,32 +1,18 @@
 import React from 'react';
 import moment from 'moment';
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
 
-export const Notification = ({notifications}) => {
-    console.log("asdfasdfasdfa");
+const Notification = ({notifications}) => {
     return (
         <ul>
-            {notifications && notifications.map(item => {
+            {notifications && notifications.map((item, index) => {
                 return (
-                    <li key={item.id}>
+                    <li key={index}>
                         <strong>{item.title}</strong>
-                        <span>{item.date}</span>
+                        <span>{moment(item.created.toDate()).fromNow()}</span>
                     </li>
                 )
             })}
         </ul>
     )
 }
-
-export default compose(
-    connect(state => {
-        return {
-            "user-data": state.firestore.ordered['user-data']
-        }
-    }),
-    firestoreConnect([
-        {collection: 'user-data'}
-    ])
-)(Notification);
+export default Notification;
