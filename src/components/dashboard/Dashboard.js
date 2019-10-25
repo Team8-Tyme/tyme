@@ -32,10 +32,7 @@ const Dashboard = ({ projects, auth, notifications })  => {
           Paper can be used to build surface or other elements for your application.
         </Typography>
       </Paper>
-      <div>
-        <div>NOTIFICATION:</div>
-        <Notification notifications={notifications} />
-      </div>
+      <Notification notifications={notifications} />
     </div>
   );
 }
