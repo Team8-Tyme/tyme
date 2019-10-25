@@ -7,8 +7,8 @@ const Notification = ({notifications}) => {
             {notifications && notifications.map((item, index) => {
                 return (
                     <li key={index}>
-                        <strong>{item.title}</strong>
-                        <span>{moment(item.created.toDate()).fromNow()}</span>
+                        <div><strong>{item.title}</strong></div>
+                        <div><span>{moment(item.created.toDate()).fromNow()}</span></div>
                     </li>
                 )
             })}
