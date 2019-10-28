@@ -70,7 +70,12 @@ export const signIn = (email, password) => {
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           initials: newUser.firstName[0] + newUser.lastName[0],
-          notifications: []
+          notifications: [
+            {
+              title: "Account Created!",
+              created: firebase.firestore.Timestamp.now()
+            }
+          ]
         });
       }).then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });
