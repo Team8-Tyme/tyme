@@ -16,18 +16,24 @@ const notifyEach = {
 const Notification = ({notifications}) => {
     return (
         <ul style={notifyBox}>
-            {notifications && notifications.map((item, index) => {
-                return (
+            {(notifications && notifications.length > 0) ? (
+                notifications.map((item, index) => (
                     <li key={index}>
                         <Paper style={notifyEach}>
                             <Typography>
                                 <strong>{item.title}</strong>
-                                <span>{moment(item.created.toDate()).fromNow()}</span>
+                                <span style={{display:"block"}}>{moment(item.created.toDate()).fromNow()}</span>
                             </Typography>
                         </Paper>
                     </li>
-                )
-            })}
+                ))
+            ) : (
+                <li>
+                    <Paper style={notifyEach}>
+                        <Typography>You havent done anything yet!</Typography>
+                    </Paper>
+                </li>
+            )}
         </ul>
     )
 }
