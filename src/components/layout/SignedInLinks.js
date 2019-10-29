@@ -2,12 +2,15 @@ import React from 'react'
 import { useDispatch } from "react-redux";
 import { signOut } from '../../store/actions/authActions';
 import Button from '@material-ui/core/Button';
+//import FourQuadrants from '../../styles/four-quadrants'
+
 
 
 
 export const SignedInLinks = () => {
   const dispatch = useDispatch();
   return (
+     
     <Button 
     onClick={() => dispatch(signOut())}
     size="small"
@@ -20,8 +23,12 @@ export const SignedInLinks = () => {
         padding: 11,
         fontSize: 10
     }}
-    > Log Out</Button>
+    > Log Out</Button> 
+    
+   
+   
   )
+  
 }
 
 

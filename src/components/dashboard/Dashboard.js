@@ -8,6 +8,10 @@ import { useSelector } from "react-redux";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
+import FourQuadrants from '../../styles/four-quadrants'
+
+import createTask from '../projects/createTask'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,18 +24,10 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = ({ projects, auth })  => {
   const classes = useStyles();
   return (
-    <div>
-      <Paper className={classes.root}>
-        <Typography variant="h5" component="h3">
-            blah blah blah
-        </Typography>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
-        </Typography>
-      </Paper>
-    </div>
+ <FourQuadrants />     
   );
 }
+
 
 
 export default compose(
