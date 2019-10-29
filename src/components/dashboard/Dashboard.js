@@ -8,7 +8,10 @@ import { useSelector } from "react-redux";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
+import firebase from "firebase/app";
 
+
+import Notification from '../notification/Notification'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Dashboard = ({ projects, auth })  => {
+const Dashboard = ({ projects, auth, notifications })  => {
   const classes = useStyles();
   return (
     <div>
@@ -29,17 +32,23 @@ const Dashboard = ({ projects, auth })  => {
           Paper can be used to build surface or other elements for your application.
         </Typography>
       </Paper>
+      <Notification notifications={notifications} />
     </div>
   );
 }
 
 
 export default compose(
-    firestoreConnect([
-    { collection: 'projects'},
-    ]),
-    connect((state, props) => ({
-        auth: state.firebase.auth,
-        projects: state.firestore.ordered.projects
-    }))
+  connect(({firebase: { auth }}) => ({
+      auth: auth
+  })),
+  firestoreConnect((state) => ([
+    { collection: 'users', doc: state.auth.uid }
+  ])),
+  connect(({firestore: {ordered}}) => {
+    return (!!ordered.users) ? {
+      // projects: ordered.users.projects,
+      notifications: ordered.users[0].notifications
+    } : {}
+  })
 )(Dashboard)
