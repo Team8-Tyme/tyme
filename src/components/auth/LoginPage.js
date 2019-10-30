@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../../store/actions/authActions";
 import { signInWithGoogle } from "../../store/actions/authActions";
 import { NavLink } from "react-router-dom";
+import { loginPageStyle } from "../../styles/components/auth/loginPageStyle";
 
 // Material Ui Components
-import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,7 +15,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { loginPageStyle } from "../../styles/components/auth/loginPageStyle";
+
 import GoogleButton from "react-google-button";
 
 const LogIn = () => {
@@ -42,7 +42,7 @@ const LogIn = () => {
     dispatch(signInWithGoogle());
   };
 
-  if (auth.uid) return <Redirect to='/' />;
+  if (auth.uid) return <Redirect to='/dashboard' />;
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />

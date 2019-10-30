@@ -1,112 +1,50 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../../store/actions/authActions";
-import { signInWithGoogle } from "../../store/actions/authActions";
-import { NavLink } from "react-router-dom";
-
-// Material Ui Components
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import { loginPageStyle } from "../../styles/components/auth/loginPageStyle";
-import GoogleButton from "react-google-button";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import { NavLink } from "react-router-dom";
+import { Paper } from "@material-ui/core";
+import Image from "../../imgs/tyme.png";
 
-const LogIn = () => {
-  const classes = loginPageStyle();
-  const [email, setEmail] = useState("");
-  const [pword, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const auth = useSelector(state => state.firebase.auth);
-  const authError = useSelector(state => state.auth.authError);
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  },
+  Paper: {
+    color:"black"
+  }
+}));
 
-  const handleEmailChange = e => {
-    setEmail(e.target.value);
-  };
+export default function ButtonAppBar() {
+  const classes = useStyles();
 
-  const handlePasswordChange = e => {
-    setPassword(e.target.value);
-  };
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(signIn(email, pword));
-  };
-
-  const googleLogIn = e => {
-    dispatch(signInWithGoogle());
-  };
-
-  if (auth.uid) return <Redirect to='/' />;
   return (
-    <Container component='main' maxWidth='xs'>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component='h1' variant='h5'>
-          hey In
-        </Typography>
-        <form className={classes.form} onSubmit={handleSubmit} noValidate>
-          <TextField
-            variant='outlined'
-            margin='normal'
-            required
-            fullWidth
-            value={email}
-            id='email'
-            label='Email Address'
-            name='email'
-            autoComplete='email'
-            autoFocus
-            onChange={handleEmailChange}
-          />
-          <TextField
-            variant='outlined'
-            margin='normal'
-            required
-            fullWidth
-            value={pword}
-            name='password'
-            label='Password'
-            type='password'
-            id='password'
-            autoComplete='current-password'
-            onChange={handlePasswordChange}
-          />
-          <Typography component='h1' variant='h5'>
-            {authError}
+    <div className={classes.root}>
+      <AppBar position='static' style={{ backgroundColor: "black" }}>
+        <Toolbar>  
+          <Typography variant='h6' className={classes.title}>
+            tyme
           </Typography>
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            color='primary'
-            className={classes.submit}
-          >
-            About
-          </Button>
-          <GoogleButton
-            className={classes.googleButton}
-            onClick={googleLogIn}
-          />
-          <Grid container justify='center' className={classes.toSignUp}>
-            <Grid item>
-              <NavLink to='/signup'>
-                Don't have an account yet? Sign Up →
-              </NavLink>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+          <NavLink to='/login'>
+            <Button color='inherit'> Log In </Button>
+          </NavLink>
+          <NavLink to='/signup'>
+            <Button color='inherit'> Sign Up </Button>
+          </NavLink>
+        </Toolbar>
+      </AppBar>
+      <Paper style={{ backgroundColor: "black" }}>
+        <img src={Image}/>
+      </Paper>
+    </div>
   );
-};
-
-export default LogIn;
+}
