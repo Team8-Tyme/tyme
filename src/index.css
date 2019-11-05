@@ -17,8 +17,13 @@ form{
   margin-top: 60px;
 }
 
+Button {
+  text-transform: none;
+}
+
 form button, form h5{
   margin: 20px 0;
+  
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),

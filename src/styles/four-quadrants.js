@@ -45,7 +45,18 @@ function MyCard({ title }) {
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography>{<Button>blah</Button>}</Typography>
+        <Typography>{title}</Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
+function MyCardButton({ title }) {
+  const classes = useStyles();
+  return (
+    <Card className={classes.card}>
+      <CardContent>
+        <Typography>{<Button>{title}</Button>}</Typography>
       </CardContent>
     </Card>
   );
@@ -54,10 +65,10 @@ function MyCard({ title }) {
 function Quadrants() {
   return (
     <React.Fragment>
-      <MyCard title="" />
-      <MyCard title="Create Task" />
-      <MyCard title="" />
-      <MyCard title="" />
+      <MyCard title="Do" />
+      <MyCard title="Decide" />
+      <MyCard title="Delegate" />
+      <MyCardButton title="Backlog +" />
     </React.Fragment>
   );
 }
