@@ -6,7 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
 import { Paper, Box } from "@material-ui/core";
-import Image from "../../imgs/tyme.png";
+import clock from "../../imgs/clock.svg";
+import checklist from "../../imgs/checklist.svg"
 import Grid from "@material-ui/core/Grid";
 import { sizing } from "@material-ui/system";
 
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   paper: {
-    padding: theme.spacing(0),
+    padding: "50px",
     height: "94vh",
     textAlign: "center",
     backgroundColor: "#FFC107"
@@ -60,20 +61,21 @@ export default function ButtonAppBar() {
           </NavLink>
         </Toolbar>
       </AppBar>
-      <Paper style={{ backgroundColor: "black" }}>
-        {/* <img src={Image} style={{width:"100%"}}/> */}
-      </Paper>
 
       <Grid height='100%' container spacing={3}>
-        
         <Grid item xs={3}>
           <Paper className={classes.paper}>
             <Typography variant='h2'>Do you not have enough time?</Typography>
-            <Typography padding="40px" variant="h4">tyme is a web app that helps you track your tasks and develop habits</Typography>
+            <img src={clock} style={{ width: "50%", padding: "10px" }} />
           </Paper>
         </Grid>
         <Grid item xs={9}>
-          <Paper className={classes.paper}>xs=6</Paper>
+          <Paper className={classes.paper}>
+            <Typography variant='h2'>
+              tyme is a web app that helps track your tasks and develop habits
+            </Typography>
+            <img src={checklist} style={{ width: "50%", marginTop:"10px" }} />
+          </Paper>
         </Grid>
       </Grid>
     </div>
