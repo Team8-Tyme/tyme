@@ -10,7 +10,9 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import FourQuadrants from '../../styles/four-quadrants'
 
-import createTask from '../projects/createTask'
+import createTask from '../projects/CreateTask'
+import { NavLink } from 'react-router-dom'
+
 
 
 
@@ -24,9 +26,17 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = ({ projects, auth })  => {
   const classes = useStyles();
   return (
- <FourQuadrants />     
+ 
+ <FourQuadrants />   
   );
 }
+
+const TaskModal = (props) => {
+  return (
+    <li><NavLink to= '/create'> New Task </NavLink> </li>
+  )
+}
+
 
 
 

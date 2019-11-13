@@ -1,12 +1,12 @@
   
 import Dashboard from "../components/dashboard/Dashboard";
-import CreateProject from "../components/pages/createProject"
+import CreateTask from "../components/pages/createProject"
 
 
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import WorkIcon from "@material-ui/icons/Work";
-
+import AddIcon from '@material-ui/icons/Add'
 
 
 const mainRoutes = [
@@ -18,11 +18,11 @@ const mainRoutes = [
     component: Dashboard
   },
   {
-    path: "/createProject",
-    name: "Create Project",
+    path: "/create",
+    name: "Create Task",
     mini: "UP",
-    icon: WorkIcon,
-    component: CreateProject
+    icon: AddIcon,
+    component: CreateTask
   },
 //   {
 //     path: "/tables/members",

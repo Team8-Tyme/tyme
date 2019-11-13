@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import Navigation from './components/layout/Navigation'
 import SignIn from './components/auth/LoginPage'
 import SignUp from './components/auth/SignupPage'
+import CreateTask from './components/projects/CreateTask'
 
 
 const history = createBrowserHistory();

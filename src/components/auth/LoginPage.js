@@ -61,7 +61,7 @@ const LogIn = () => {
     dispatch(signIn(email, pword));
   };
 
-  if (auth.uid) return <Redirect to="/" />;
+  if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

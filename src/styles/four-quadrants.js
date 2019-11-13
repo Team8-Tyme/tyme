@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import { palette } from '@material-ui/system';
 import Button from '@material-ui/core/Button';
 import Paper from "@material-ui/core/Paper";
+import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
   paper: {
@@ -68,9 +70,23 @@ function Quadrants() {
       <MyCard title="Do" />
       <MyCard title="Decide" />
       <MyCard title="Delegate" />
-      <MyCardButton title="Backlog +" />
+      <NavLink to='/create'><MyCardButton title="Backlog +" /> </NavLink>
+    
     </React.Fragment>
   );
+}
+
+
+const linker = (props) => {
+return (
+<ul className = "right">
+  <li>NavLink to= '/</li>
+
+
+
+</ul>
+
+)
 }
 
 function FourQuadrants() {
@@ -90,6 +106,11 @@ function FourQuadrants() {
 
   );
 }
+
+
+
+
+
 
 
 
