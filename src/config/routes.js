@@ -1,6 +1,6 @@
   
 import Dashboard from "../components/dashboard/Dashboard";
-import CreateTask from "../components/pages/createProject"
+import CreateTask from "../components/projects/CreateTask"
 
 
 // @material-ui/icons
