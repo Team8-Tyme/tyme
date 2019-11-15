@@ -8,17 +8,22 @@ import Button from '@material-ui/core/Button';
 import Paper from "@material-ui/core/Paper";
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
+  NavLink: {
+    color: "blue"
+  }, 
   paper: {
     display: "grid",
     gridTemplateColumns: "3rem 250px 250px 3rem",
     gridTemplateRows: "3rem 250px 250px 3rem",
     gridGap: "1rem",
-    justifyItems: "center",
-    alignItems: "center",
-    justifyContent: "center",
+    justifyItems: "",
+    alignItems: "",
+    justifyContent: "",
     backgroundColor:"purple"
+    
   },
   top: {
     gridRow: "1 / 2",
@@ -64,6 +69,7 @@ function MyCardButton({ title }) {
   );
 }
 
+
 function Quadrants() {
   return (
     <React.Fragment>
@@ -71,10 +77,13 @@ function Quadrants() {
       <MyCard title="Decide" />
       <MyCard title="Delegate" />
       <NavLink to='/create'><MyCardButton title="Backlog +" /> </NavLink>
+   
     
     </React.Fragment>
   );
 }
+
+
 
 
 const linker = (props) => {
@@ -106,8 +115,6 @@ function FourQuadrants() {
 
   );
 }
-
-
 
 
 

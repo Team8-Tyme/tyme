@@ -36,7 +36,7 @@ export default compose(
     return !!ordered.users
       ? {
           // projects: ordered.users.projects,
-          //notifications: ordered.users[0].notifications
+          // notifications: ordered.users[0].notifications
         }
       : {};
   })
