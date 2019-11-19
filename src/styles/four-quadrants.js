@@ -11,15 +11,19 @@ import { connect } from 'react-redux'
 import TaskList from "../components/tasks/TaskList";
 
 const useStyles = makeStyles({
+  NavLink: {
+    color: "blue"
+  }, 
   paper: {
     display: "grid",
     gridTemplateColumns: "3rem 250px 250px 3rem",
     gridTemplateRows: "3rem 250px 250px 3rem",
     gridGap: "1rem",
-    justifyItems: "center",
-    alignItems: "center",
-    justifyContent: "center",
+    justifyItems: "",
+    alignItems: "",
+    justifyContent: "",
     backgroundColor:"purple"
+    
   },
   top: {
     gridRow: "1 / 2",
@@ -65,6 +69,7 @@ function MyCardButton({ title }) {
   );
 }
 
+
 function Quadrants() {
   return (
     <React.Fragment>
@@ -74,10 +79,13 @@ function Quadrants() {
       <MyCard title="Decide" />
       <MyCard title="Delegate" />
       <NavLink to='/create'><MyCardButton title="Backlog +" /> </NavLink>
+   
     
     </React.Fragment>
   );
 }
+
+
 
 
 const linker = (props) => {
@@ -110,8 +118,6 @@ function FourQuadrants() {
 
   );
 }
-
-
 
 
 
