@@ -16,10 +16,9 @@ export default function TaskSummary() {
   return (
     <Paper className={classes.root}>
       <Typography variant="h5" component="h3">
-       Task Title
       </Typography>
       <Typography component="p">
-        Posted by You
+        
       </Typography>
     </Paper>
   );

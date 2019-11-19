@@ -11,11 +11,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TaskList = ({ projects }) => {
+const TaskList = ({ tasks }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
       <TaskSummary />
+      
       <TaskSummary />
     </Paper>
   );

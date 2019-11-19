@@ -5,6 +5,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
 const useStyles = makeStyles({
   card: {
@@ -38,8 +40,7 @@ export default function TaskDetail() {
         </Typography>
       </CardContent>
       <CardActions>
-       <p>Posted by You</p>
-       <p>2nd, September </p>
+     
       </CardActions>
     </Card>
   );
