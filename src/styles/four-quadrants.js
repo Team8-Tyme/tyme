@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Paper from "@material-ui/core/Paper";
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import TaskList from "../components/tasks/TaskList";
 
 const useStyles = makeStyles({
   paper: {
@@ -67,7 +68,9 @@ function MyCardButton({ title }) {
 function Quadrants() {
   return (
     <React.Fragment>
-      <MyCard title="Do" />
+      <MyCard title="Do" >
+        <Typography><TaskList></TaskList></Typography>
+      </MyCard>
       <MyCard title="Decide" />
       <MyCard title="Delegate" />
       <NavLink to='/create'><MyCardButton title="Backlog +" /> </NavLink>
@@ -95,8 +98,9 @@ function FourQuadrants() {
   return (
     
     <Paper className={classes.paper}>
-     
-      <Typography className={classes.top}></Typography>
+      <Typography className={classes.top}>
+        <TaskList/>
+      </Typography>
       <Typography className={classes.bottom}></Typography>
       <Typography className={classes.left}></Typography>
       <Typography className={classes.right}></Typography>

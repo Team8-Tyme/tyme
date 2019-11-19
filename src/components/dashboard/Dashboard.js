@@ -10,10 +10,12 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import FourQuadrants from "../../styles/four-quadrants";
 
-import createTask from "../projects/CreateTask";
+
+import createTask from "../tasks/CreateTask";
 import { NavLink } from "react-router-dom";
 
 import Notification from "../notification/Notification";
+import TaskList from "../tasks/TaskList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +26,12 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = ({ projects, auth, notifications }) => {
   const classes = useStyles();
-  return <FourQuadrants />;
+  return (
+    <div>
+      {/* <FourQuadrants /> */}
+      <TaskList />
+    </div>
+  );
 };
 
 export default compose(

@@ -5,6 +5,7 @@ import Navigation from './components/layout/Navigation'
 import SignIn from './components/auth/LoginPage'
 import SignUp from './components/auth/SignupPage'
 import About from './components/pages/AboutTyme'
+import TaskDetail from './components/tasks/TaskDetail'
 
 
 const history = createBrowserHistory();
@@ -19,6 +20,7 @@ class App extends Component {
               <Route path='/login' component={SignIn} />
               <Route path='/signup' component={SignUp} />
               <Route path='/about' component={About} />
+           
               <Route path='/'component={Navigation} />
             </Switch>
         </div>
