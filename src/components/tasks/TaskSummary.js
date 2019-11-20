@@ -10,16 +10,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TaskSummary() {
+export default function TaskSummary({ task }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.root}>
       <Typography variant="h5" component="h3">
+        {task.taskTitle}
       </Typography>
-      <Typography component="p">
-        
-      </Typography>
+      <Typography component="p">{task.taskDetail}</Typography>
     </Paper>
   );
 }

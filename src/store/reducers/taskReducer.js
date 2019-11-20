@@ -1,4 +1,9 @@
-  const initState = {}
+  const initState = {
+    task: [
+     {id:'1', taskTitle: "help me", taskDetail: "no"}
+    ]
+    
+  }
 
 const taskReducer = (state = initState, action) => {
   switch (action.type) {

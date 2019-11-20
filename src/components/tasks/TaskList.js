@@ -15,9 +15,11 @@ const TaskList = ({ tasks }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
-      <TaskSummary />
-      
-      <TaskSummary />
+      <Typography>Task </Typography>
+      {tasks &&
+        tasks.map(task => {
+          return <TaskSummary task={task}></TaskSummary>;
+        })}
     </Paper>
   );
 };

@@ -1,15 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import { Redirect } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import FourQuadrants from "../../styles/four-quadrants";
-
 
 import createTask from "../tasks/CreateTask";
 import { NavLink } from "react-router-dom";
@@ -24,12 +21,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Dashboard = ({ projects, auth, notifications }) => {
+const Dashboard = ({ tasks, auth, notifications }) => {
   const classes = useStyles();
+
   return (
     <div>
-      {/* <FourQuadrants /> */}
-      <TaskList />
+      <TaskList tasks={tasks} />
     </div>
   );
 };
@@ -38,11 +35,14 @@ export default compose(
   connect(({ firebase: { auth } }) => ({
     auth: auth
   })),
-  firestoreConnect(state => [{ collection: "users", doc: state.auth.uid }]),
+  firestoreConnect(state => [
+    { collection: "users", doc: state.auth.uid },
+    { collection: "task" }
+  ]),
   connect(({ firestore: { ordered } }) => {
     return !!ordered.users
       ? {
-          // projects: ordered.users.projects,
+          tasks: ordered.task
           // notifications: ordered.users[0].notifications
         }
       : {};

@@ -22,7 +22,7 @@ const mainRoutes = [
     path: "/create",
     name: "Create Task",
     mini: "UP",
-    icon: AddIcon,
+    icon: WorkIcon,
     component: CreateTask
   },
   {
