@@ -61,7 +61,7 @@ export const signIn = (email, password) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
       const firebase = getFirebase();
       const firestore = getFirestore();
-  
+   
       firebase.auth().createUserWithEmailAndPassword(
         newUser.email, 
         newUser.password
@@ -69,7 +69,13 @@ export const signIn = (email, password) => {
         return firestore.collection('users').doc(resp.user.uid).set({
           firstName: newUser.firstName,
           lastName: newUser.lastName,
-          initials: newUser.firstName[0] + newUser.lastName[0]
+          initials: newUser.firstName[0] + newUser.lastName[0],
+          notifications: [
+            {
+              title: "Account Created!",
+              created: firebase.firestore.Timestamp.now()
+            }
+          ]
         });
       }).then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });
