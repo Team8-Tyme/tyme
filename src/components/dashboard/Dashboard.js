@@ -13,20 +13,38 @@ import { NavLink } from "react-router-dom";
 
 import Notification from "../notification/Notification";
 import TaskList from "../tasks/TaskList";
-
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     marginTop: "200px"
   }
+  
+  
 }));
 
 const Dashboard = ({ tasks, auth, notifications }) => {
   const classes = useStyles();
 
   return (
-    <div>
-      <TaskList tasks={tasks} />
+    <div className={classes.root}>
+      <Paper className={classes.paper}>
+       <Grid container spacing={3}>
+       <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>Do</Paper>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>Decide</Paper>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>Delegate</Paper>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+         <TaskList tasks={tasks} />
+        </Grid>
+       </Grid>
+       </Paper>
     </div>
   );
 };

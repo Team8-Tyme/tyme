@@ -14,11 +14,11 @@ export default function TaskSummary({ task }) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper elevation={0}>
       <Typography variant="h5" component="h3">
         {task.taskTitle}
       </Typography>
       <Typography component="p">{task.taskDetail}</Typography>
-    </Paper>
+      </Paper>
   );
 }
