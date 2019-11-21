@@ -14,7 +14,7 @@ export default function TaskSummary({ task }) {
   const classes = useStyles();
 
   return (
-    <Paper elevation={0}>
+    <Paper elevation={1}>
       <Typography variant="h5" component="h3">
         {task.taskTitle}
       </Typography>
