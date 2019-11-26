@@ -7,6 +7,8 @@ import CreateProject from "../components/pages/createProject"
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import WorkIcon from "@material-ui/icons/Work";
 
+import HistoryIcon from '@material-ui/icons/History';
+
 
 
 const mainRoutes = [
@@ -23,6 +25,16 @@ const mainRoutes = [
     mini: "UP",
     icon: WorkIcon,
     component: CreateProject
+  },
+
+  {
+    path: "/history", 
+    name: "History", 
+    icon: HistoryIcon, 
+    mini: "UP", 
+    component: History
+
+
   },
 //   {
 //     path: "/tables/members",
