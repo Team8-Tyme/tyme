@@ -1,6 +1,7 @@
   
 import Dashboard from "../components/dashboard/Dashboard";
 import CreateProject from "../components/pages/createProject"
+import History from "../components/pages/history"
 
 
 // @material-ui/icons
