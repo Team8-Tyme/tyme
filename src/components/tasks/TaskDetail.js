@@ -7,6 +7,19 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
+import { firebaseConnect } from 'react-redux-firebase'
+import { firebase } from 'react-redux-firebase'
+
+firebaseConnect(props => [
+  { collection : "task", doc: props.match.params.id }
+])
+
+function writeTaskData(taskDetail) {
+  firebase.database().ref('task/').set({
+    taskDetail
+  });
+}
+
 
 const useStyles = makeStyles({
   card: {
@@ -35,8 +48,9 @@ export default function TaskDetail() {
         >
           Task Title
         </Typography>
+
         <Typography variant="body2" component="p" className={classes.detail}>
-          Task Detail
+         
         </Typography>
       </CardContent>
       <CardActions>
