@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import FourQuadrants from "../../styles/four-quadrants";
 
 import createTask from "../tasks/CreateTask";
 import { NavLink } from "react-router-dom";

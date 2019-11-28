@@ -1,11 +1,5 @@
-  const initState = {
-    task: [
-     {id:'1', taskTitle: "help me", taskDetail: "no"}
-    ]
-    
-  }
 
-const taskReducer = (state = initState, action) => {
+const taskReducer = (state = {}, action) => {
   switch (action.type) {
     case 'CREATE_TASK_SUCCESS':
       console.log('create task success');

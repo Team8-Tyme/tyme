@@ -1,14 +1,17 @@
   
 import Dashboard from "../components/dashboard/Dashboard";
 import CreateTask from "../components/tasks/CreateTask"
-
-
+import TaskDetail from "../components/tasks/TaskDetail";
+import History from "../components/habits/History";
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import WorkIcon from "@material-ui/icons/Work";
 import AddIcon from '@material-ui/icons/Add'
-import TaskDetail from "../components/tasks/TaskDetail";
-
+import TrendingUpIcon from "@material-ui/icons/TrendingUp";
+import DetailsIcon from "@material-ui/icons/Details";
+import MoveToInboxOutlinedIcon from "@material-ui/icons/MoveToInboxOutlined";
+import DoneAllIcon from '@material-ui/icons/DoneAll';
+import AddHabitForm from "../components/habits/AddHabitForm";
+import Home from "../components/habits/Home";
 
 const mainRoutes = [
   {
@@ -18,20 +21,37 @@ const mainRoutes = [
     mini: "PD",
     component: Dashboard
   },
+
   {
     path: "/create",
     name: "Create Task",
     mini: "UP",
-    icon: WorkIcon,
+    icon: AddIcon,
     component: CreateTask
   },
   {
     path: "/task/:id",
     name: "Task Detail",
     mini: "UP",
-    icon: AddIcon,
+    icon: DetailsIcon,
     component: TaskDetail
+  },
+  {
+    path: "/habit-list",
+    name: "Habit List",
+    mini: "UP",
+    icon: TrendingUpIcon,
+    component: Home
+  },
+  
+  {
+    path: "/add-habit",
+    name: "Add Habit",
+    mini: "UP",
+    icon: MoveToInboxOutlinedIcon,
+    component: AddHabitForm
   }
+
   //   {
   //     path: "/tables/members",
   //     name: "Members",
