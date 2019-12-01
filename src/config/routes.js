@@ -3,6 +3,7 @@ import Dashboard from "../components/dashboard/Dashboard";
 import CreateProject from "../components/pages/createProject"
 import History from "../components/pages/history"
 
+import Settings from "../components/pages/Settings"
 
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -10,6 +11,7 @@ import WorkIcon from "@material-ui/icons/Work";
 
 import HistoryIcon from '@material-ui/icons/History';
 
+import SettingsIcon from "@material-ui/icons/Settings"
 
 
 const mainRoutes = [
@@ -34,9 +36,15 @@ const mainRoutes = [
     icon: HistoryIcon, 
     mini: "UP", 
     component: History
-
-
   },
+
+  {
+    path: "/settings",
+    name: "Settings",
+    mini: "Setting",
+    icon: SettingsIcon,
+    component: Settings
+  }
 //   {
 //     path: "/tables/members",
 //     name: "Members",
