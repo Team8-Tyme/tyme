@@ -72,7 +72,6 @@ class Habit extends Component {
     let habit = habits.filter(
       item => item.id === parseInt(this.props.habit.id)
     )[0];
-    console.log(habit, "yoyoyo");
     let savedDays = habit.days;
 
     let today = moment().format("YYYY-MM-D");

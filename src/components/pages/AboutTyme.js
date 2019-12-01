@@ -15,7 +15,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
   body: {
-    backgroundColor: "purple"
+    backgroundColor: "black"
   },
   root: {
     flexGrow: 1,

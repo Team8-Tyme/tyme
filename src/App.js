@@ -6,8 +6,8 @@ import SignIn from './components/auth/LoginPage'
 import SignUp from './components/auth/SignupPage'
 import About from './components/pages/AboutTyme'
 import TaskDetail from './components/tasks/TaskDetail';
-import History from "./components/habits/History"
-import Home from "./components/habits/Home";
+import History from "./components/habits/HabitStreaks"
+import Home from "./components/habits/HabitList";
 import AddHabitForm from "./components/habits/AddHabitForm";
 
 
@@ -23,7 +23,6 @@ class App extends Component {
             <Route path="/login" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/about" component={About} />
-            <Route exact path="/view-history/:id" component={History} />
             <Route path="/" component={Navigation} />
           </Switch>
         </div>

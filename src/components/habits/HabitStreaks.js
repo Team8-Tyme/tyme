@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { Paper, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default class History extends Component {
+export default class HabitStreaks extends Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
+  
      let habits = JSON.parse(window.localStorage.getItem("habits"));
      let habit = habits.filter(
        item => item.id === parseInt(this.props.match.params.id)
@@ -29,20 +32,22 @@ export default class History extends Component {
     }
 
     return (
-      <div className="history">
-        <div className="history__header">
-          <div>
-            <div className="habit__name habit__name--large">{habit.name}</div>
-            <div className="history__duration">Last 365 Days</div>
+      <Paper>
+        <div className="history">
+          <div className="history__header">
+            <div>
+              <Typography>{habit.name}</Typography>
+              <div className="history__duration">Last 365 Days</div>
+            </div>
+            <span className="history__close">
+              <Link to="/dashboard" className="button button--danger">
+                Back
+              </Link>
+            </span>
           </div>
-          <span className="history__close">
-            <Link to="/dashboard" className="button button--danger">
-              Back
-            </Link>
-          </span>
+          <div className="days">{dayGrids}</div>
         </div>
-        <div className="days">{dayGrids}</div>
-      </div>
+      </Paper>
     );
   }
 }

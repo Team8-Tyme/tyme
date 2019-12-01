@@ -26,7 +26,7 @@ svg {
 }
 
 .form {
-  background-color: #fff;
+  
   border-radius: 4px;
   box-shadow: 0 15px 35px 0 rgba(42, 51, 83, 0.12),
     0 5px 15px rgba(0, 0, 0, 0.06);
@@ -44,10 +44,11 @@ svg {
 
 .habits {
   width: 100%;
+  margin-top: 20vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   grid-gap: 10px;
-  margin: 20px;
+ 
 }
 
 .habit {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { loginPageStyle } from "../../styles/components/auth/loginPageStyle";
+
 import { createTask } from '../../store/actions/taskActions'
 // Material Ui Components
 import Button from "@material-ui/core/Button";
@@ -10,12 +10,33 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { Paper, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+  paper: {
+    marginTop: "55px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: "#FFC107"
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: "black",
+    color: "white",
+    "&:hover": {
+      backgroundColor: ""
+    }
+  }
+}));
 
 
 const CreateTask = () => {
 
-  
-  const classes = loginPageStyle();
+  const classes = useStyles();
   const [taskTitle, setTitle] = useState("");
   const [taskDetail, setDetail] = useState("");
   const dispatch = useDispatch();
@@ -35,13 +56,10 @@ const CreateTask = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Paper component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          <AddCircleOutlineIcon />
-        </Typography>
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
+          <label>Enter Task</label>
           <TextField
             rows={2}
             variant="outlined"
@@ -82,7 +100,7 @@ const CreateTask = () => {
           </Button>
         </form>
       </div>
-    </Container>
+    </Paper>
   );
 };
 

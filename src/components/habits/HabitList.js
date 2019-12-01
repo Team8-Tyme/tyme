@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Habit from "../habits/Habit.js";
+import Habit from "./Habit.js";
 
 import "../../styles/App.css";
 
