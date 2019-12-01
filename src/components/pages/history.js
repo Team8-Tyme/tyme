@@ -8,6 +8,8 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect, firebaseConnect } from "react-redux-firebase";
 import Notification from "../notification/Notification";
+import timestamp from "../../styles/components/timestamp.js"
+import Moment from 'react-moment';
 
 
 import firebase, { app } from "firebase/app";
@@ -34,6 +36,7 @@ const History = ({createdAt, taskDetail, taskTitle}) => {
   var db = firebase.database();
   return(
     <div>
+      
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
           History < br />< br /> 
@@ -41,7 +44,7 @@ const History = ({createdAt, taskDetail, taskTitle}) => {
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } 
         </Typography> 
           <Typography variant="h5" component="p">
-          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: { createdAt } < br />
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: <Moment format="YYYY/MM/DD">{ createdAt }</Moment> < br />
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Detail: { taskDetail } < br />
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Title: { taskTitle }
           </Typography>
@@ -49,6 +52,9 @@ const History = ({createdAt, taskDetail, taskTitle}) => {
     </div>
   );
 }
+
+
+
 
 export default compose(
   connect(({firebase: { firestore }}) => ({
@@ -60,6 +66,7 @@ export default compose(
   connect(({firestore: {ordered}}) => {
     return (!!ordered.task) ? {
       // projects: ordered.users.projects,
+      
       createdAt: [ordered.task[0].createdAt.toString(), ordered.task[1].createdAt.toString(), 
                     ordered.task[2].createdAt.toString(), ordered.task[3].createdAt.toString()],
       taskDetail: ordered.task[0].taskDetail ,
