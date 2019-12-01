@@ -48,7 +48,7 @@ const History = ({createdAt, taskDetail, taskTitle}) => {
          
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Title: { taskTitle }
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Detail: { taskDetail } < br />
-          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: <br/> {createdAt}< br /> 
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: <br/>  {createdAt}< br /> 
           </Typography>
       </Paper>
     </div>
@@ -69,8 +69,8 @@ export default compose(
     return (!!ordered.task) ? {
       // projects: ordered.users.projects,
       
-      createdAt: [
-                  (ordered.task[1].createdAt.toDate().toString()),
+      createdAt: [(moment(ordered.task[1].createdAt.toDate()).format("MM/DD/YYYY"))
+                  // (ordered.task[1].createdAt.toDate().toString()),
                   ],
       taskDetail: [ordered.task[1].taskDetail, <br/>,
                    ],

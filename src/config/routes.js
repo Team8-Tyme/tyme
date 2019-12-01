@@ -47,13 +47,7 @@ const mainRoutes = [
     icon: SettingsIcon,
     component: Settings
   },
-  {
-    path: "/history",
-    name: "History",
-    mini: "Hist",
-    icon: HistoryIcon,
-    component: History
-  },
+  
 //   {
 //     path: "/tables/members",
 //     name: "Members",
