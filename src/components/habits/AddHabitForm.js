@@ -46,8 +46,7 @@ class AddHabitForm extends Component {
                 rows={2}
                 variant="outlined"
                 margin="normal"
-                required
-            
+                required 
                 type="text"
                 className="input"
                 name="name"
