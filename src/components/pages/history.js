@@ -10,7 +10,7 @@ import { firestoreConnect, firebaseConnect } from "react-redux-firebase";
 import Notification from "../notification/Notification";
 import timestamp from "../../styles/components/timestamp.js"
 import Moment from 'react-moment';
-import moment from 'moment';
+import moment from 'moment'
 
 
 import firebase, { app } from "firebase/app";
@@ -46,9 +46,9 @@ const History = ({createdAt, taskDetail, taskTitle}) => {
         </Typography> 
           <Typography variant="h5" component="p">
          
-          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: {createdAt}< br />
-          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Detail: { taskDetail } < br />
           { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Title: { taskTitle }
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Detail: { taskDetail } < br />
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: <br/> {createdAt}< br /> 
           </Typography>
       </Paper>
     </div>
@@ -69,10 +69,12 @@ export default compose(
     return (!!ordered.task) ? {
       // projects: ordered.users.projects,
       
-      createdAt: [moment(ordered.task[0].createdAt.toDate()), ordered.task[1].createdAt.toDate(), 
-                    ordered.task[2].createdAt.toDate(), ordered.task[3].createdAt.toDate()],
-      taskDetail: ordered.task[0].taskDetail ,
-      taskTitle: ordered.task[0].taskTitle
+      createdAt: [
+                  (ordered.task[1].createdAt.toDate().toString()),
+                  ],
+      taskDetail: [ordered.task[1].taskDetail, <br/>,
+                   ],
+      taskTitle: ordered.task[1].taskTitle
     } : {}
   })
 )(History)
