@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { Paper } from "@material-ui/core";
 
 const CreateTask = () => {
 
@@ -35,52 +36,53 @@ const CreateTask = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          <AddCircleOutlineIcon />
-        </Typography>
-        <form className={classes.form} onSubmit={handleSubmit} noValidate>
-          <TextField
-            rows={2}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            value={taskTitle}
-            id="taskTitle"
-            label="Task Title"
-            name="taskTitle"
-            autoComplete="taskTitle"
-            autoFocus
-            onChange={handleTitleChange}
-          />
-          <TextField
-            multiline={true}
-            rows={6}
-            rowsMax={5}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            value={taskDetail}
-            name="Task Detail"
-            label="Task Detail"
-            type="text"
-            id="task-detail"
-            onChange={handleDetailChange}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Add Task
-          </Button>
-        </form>
-      </div>
+      <Paper>
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
+            <AddCircleOutlineIcon />
+          </Typography>
+          <form className={classes.form} onSubmit={handleSubmit} noValidate>
+            <TextField
+              rows={2}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              value={taskTitle}
+              id="taskTitle"
+              label="Task Title"
+              name="taskTitle"
+              autoComplete="taskTitle"
+              autoFocus
+              onChange={handleTitleChange}
+            />
+            <TextField
+              multiline={true}
+              rows={6}
+              rowsMax={5}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              value={taskDetail}
+              name="Task Detail"
+              label="Task Detail"
+              type="text"
+              id="task-detail"
+              onChange={handleDetailChange}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Add Task
+            </Button>
+          </form>
+        </div>
+      </Paper>
     </Container>
   );
 };
