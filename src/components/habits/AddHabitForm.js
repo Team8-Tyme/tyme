@@ -49,11 +49,6 @@ class AddHabitForm extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <Button>
-            <Link onClick={this.goBack} to={window.location.hash}>
-              Close
-            </Link>
-          </Button>
           <Button onClick={this.handleSaveHabit}>Add Habit</Button>
         </form>
       </Paper>
