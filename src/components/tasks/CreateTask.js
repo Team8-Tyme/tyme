@@ -1,15 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createBrowserHistory } from "history";
+import { createTask } from "../../store/actions/taskActions";
+import { withRouter } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-
-import { createTask } from '../../store/actions/taskActions'
 // Material Ui Components
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { Paper, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -33,14 +30,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-const CreateTask = () => {
-
+const CreateTask = props => {
   const classes = useStyles();
   const [taskTitle, setTitle] = useState("");
   const [taskDetail, setDetail] = useState("");
   const dispatch = useDispatch();
-
   const handleTitleChange = e => {
     setTitle(e.target.value);
   };
@@ -53,6 +47,7 @@ const CreateTask = () => {
     e.preventDefault();
     console.log(taskTitle, taskDetail);
     dispatch(createTask(taskTitle, taskDetail));
+    props.history.push("/dashboard");
   };
 
   return (
@@ -104,4 +99,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default withRouter(CreateTask);

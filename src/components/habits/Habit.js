@@ -10,23 +10,23 @@ class Habit extends Component {
 
     this.state = {
       isChecked: false,
-      dayStreak: 0
+      habitStreak: 0
     };
   }
 
   updateDayStreak = () => {
-    let dayStreak = 0;
+    let habitStreak = 0;
     const reverseSavedDays = this.props.habit.days.reverse();
 
     let lastDate = moment(reverseSavedDays[0], "YYYY-MM-D");
     const today = moment().format("YYYY-MM-D");
-    const dayDiff = moment.duration(moment(today).diff(lastDate)).asDays();
+    const diffDays = moment.duration(moment(today).diff(lastDate)).asDays();
 
     for (let i = 0; i <= reverseSavedDays.length; i++) {
       lastDate = moment(reverseSavedDays[i], "YYYY-MM-D");
-      if (dayDiff <= 1) {
-        if (dayStreak === 0) {
-          dayStreak += 1;
+      if (diffDays <= 1) {
+        if (habitStreak === 0) {
+          habitStreak += 1;
         }
       } else {
         break;
@@ -34,14 +34,14 @@ class Habit extends Component {
       if (reverseSavedDays[i + 1]) {
         let nextDate = moment(reverseSavedDays[i + 1], "YYYY-MM-D");
         if (moment.duration(lastDate.diff(nextDate)).asDays() === 1) {
-          dayStreak++;
+          habitStreak++;
         } else {
           break;
         }
       }
     }
     this.setState({
-      dayStreak
+      habitStreak
     });
   };
 
@@ -59,7 +59,6 @@ class Habit extends Component {
         isChecked: true
       });
     }
-
     this.updateDayStreak();
   }
 
@@ -90,9 +89,9 @@ class Habit extends Component {
       <div className="habit">
         <div className="habit__name">{this.props.habit.name}</div>
         <div className="habit__details">
-          You're currently on a{" "}
+          You're currently on a {" "}
           <b>
-            {this.state.dayStreak}
+            {this.state.habitStreak}
             -DAY-STREAK
           </b>
         </div>
