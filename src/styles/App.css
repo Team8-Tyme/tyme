@@ -58,6 +58,14 @@ svg {
   overflow: hidden;
 }
 
+
+.habitGraph {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
 .habit__name {
   font-size: 16px;
   font-weight: 700;
