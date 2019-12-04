@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,7 +11,6 @@ import { Paper, Box } from "@material-ui/core";
 import clock from "../../imgs/clock.svg";
 import checklist from "../../imgs/checklist.svg"
 import Grid from "@material-ui/core/Grid";
-import { sizing } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -39,7 +40,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
+  const auth = useSelector(state => state.firebase.auth);
+  const authError = useSelector(state => state.auth.authError);
 
+  if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <div className={classes.root}>
       <AppBar position='static' style={{ backgroundColor: "black" }}>

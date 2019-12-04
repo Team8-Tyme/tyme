@@ -33,6 +33,7 @@ const LogIn = () => {
   const handlePasswordChange = e => {
     setPassword(e.target.value);
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(signIn(email, pword));
@@ -40,9 +41,9 @@ const LogIn = () => {
 
   const googleLogIn = e => {
     dispatch(signInWithGoogle());
-  };
+  }; 
 
-  if (auth.uid) return <Redirect to='/dashboard' />;
+  if (auth.gituid) return <Redirect to="/dashboard" />;
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
@@ -83,6 +84,7 @@ const LogIn = () => {
           <Typography className={classes.authError} component='h1' variant='h5'>
             {authError}
           </Typography>
+          
           <Button
             type='submit'
             fullWidth

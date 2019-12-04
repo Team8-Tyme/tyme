@@ -3,12 +3,16 @@ import Dashboard from "../components/dashboard/Dashboard";
 import CreateProject from "../components/pages/createProject"
 import Settings from "../components/pages/Settings"
 import History from "../components/pages/History"
+import CreateTask from "../components/tasks/CreateTask"
+
 
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import WorkIcon from "@material-ui/icons/Work";
 import SettingsIcon from "@material-ui/icons/Settings"
 import HistoryIcon from "@material-ui/icons/History"
+import AddIcon from '@material-ui/icons/Add'
+import TaskDetail from "../components/tasks/TaskDetail";
 
 
 const mainRoutes = [
@@ -20,11 +24,11 @@ const mainRoutes = [
     component: Dashboard
   },
   {
-    path: "/createProject",
-    name: "Create Project",
+    path: "/create",
+    name: "Create Task",
     mini: "UP",
     icon: WorkIcon,
-    component: CreateProject
+    component: CreateTask
   },
   {
     path: "/settings",
