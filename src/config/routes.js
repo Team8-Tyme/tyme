@@ -11,6 +11,7 @@ import AddIcon from '@material-ui/icons/Add'
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import HistoryIcon from "@material-ui/icons/History";
+
 const mainRoutes = [
   {
     path: "/dashboard",
@@ -49,43 +50,18 @@ const mainRoutes = [
     component: History
   },
 
-
-  //   {
-  //     path: "/tables/members",
-  //     name: "Members",
-  //     mini: "GP",
-  //     icon: GroupIcon,
-  //     component: ReactTables
-  //   },
-  //   {
-  //     path: "/projects",
-  //     name: "Projects",
-  //     mini: "P",
-  //     icon: WorkIcon,
-  //     component: ProjectsPage
-  //   },
-  //   { path: "/calendar",
-  //     name: "Calendar",
-  //     mini: "CA",
-  //     icon: DateRange,
-  //     component: Calendar
-  //   },
-  //   { path: "/stats",
-  //     name: "Stats",
-  //     mini: "S",
-  //     icon: EqualizerIcon,
-  //     component: Stats
-  //   },
-  //   { path: "/chat",
-  //     name: "Chat",
-  //     mini: "C",
-  //     icon: ChatIcon,
-  //     component: Calendar
-  //   },
-  //    { redirect: true,
-  //      path: "/",
-  //      pathTo: "/dashboard",
-  //      name: "Dashboard"
-  //    }
+    path: "/settings",
+    name: "Settings",
+    mini: "Setting",
+    icon: SettingsIcon,
+    component: Settings
+  },
+  {
+    path: "/history",
+    name: "History",
+    mini: "Hist",
+    icon: HistoryIcon,
+    component: History
+  },
 ];
 export default mainRoutes;

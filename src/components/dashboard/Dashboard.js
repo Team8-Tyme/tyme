@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
+import firebase from "firebase/app";
 
 import createTask from "../tasks/CreateTask";
 import { NavLink } from "react-router-dom";
@@ -14,6 +15,7 @@ import Notification from "../notification/Notification";
 import TaskList from "../tasks/TaskList";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -22,6 +24,7 @@ const useStyles = makeStyles(theme => ({
   
   
 }));
+
 
 const Dashboard = ({ tasks, auth, notifications }) => {
   const classes = useStyles();
@@ -44,6 +47,7 @@ const Dashboard = ({ tasks, auth, notifications }) => {
         </Grid>
        </Grid>
        </Paper>
+     <Notification notifications={notifications} />
     </div>
   );
 };
