@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
+import firebase from "firebase/app";
 
 import createTask from "../tasks/CreateTask";
 import { NavLink } from "react-router-dom";
@@ -20,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "200px"
   }
 }));
+
 
 const Dashboard = ({ tasks, auth, notifications }) => {
   const classes = useStyles();

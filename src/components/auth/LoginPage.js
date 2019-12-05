@@ -42,7 +42,7 @@ const LogIn = () => {
   const googleLogIn = e => {
     dispatch(signInWithGoogle());
   }; 
-
+  
   if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <Container component='main' maxWidth='xs'>
@@ -84,7 +84,6 @@ const LogIn = () => {
           <Typography className={classes.authError} component='h1' variant='h5'>
             {authError}
           </Typography>
-          
           <Button
             type='submit'
             fullWidth

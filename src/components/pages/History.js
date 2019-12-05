@@ -8,8 +8,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect, firebaseConnect } from "react-redux-firebase";
 import Notification from "../notification/Notification";
-
-
+import moment from "moment";
 import firebase, { app } from "firebase/app";
 import { getFirestore } from 'redux-firestore';
 import { database } from "firebase/database";
@@ -28,20 +27,22 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const Settings = ({firstName, lastName}) => {
+const History = ({createdAt, taskDetail, taskTitle}) => {
   const classes = useStyles();
-  var userID = firebase.auth().currentUser.uid.toString();
+  var userID = firebase.firestore().collection('task').doc().id;
   var db = firebase.database();
   return(
     <div>
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
-          User Information < br />< br />
-          Email: { firebase.auth().currentUser.email }
+          History < br />< br /> 
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Completed: < br /> 
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } 
         </Typography> 
           <Typography variant="h5" component="p">
-            First Name: { firstName } < br />
-            Last Name: { lastName }
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Created At: { createdAt } < br />
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Detail: { taskDetail } < br />
+          { "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" } Task Title: { taskTitle }
           </Typography>
       </Paper>
     </div>
@@ -49,17 +50,22 @@ const Settings = ({firstName, lastName}) => {
 }
 
 export default compose(
-  connect(({firebase: { auth }}) => ({
-      auth: auth
+  connect(({firebase: { firestore }}) => ({
+      firestore: firestore
   })),
   firestoreConnect((state) => ([
-    { collection: 'users', doc: state.auth.uid }
+    { collection: 'task', doc: state.firestore.collection.id }
   ])),
   connect(({firestore: {ordered}}) => {
-    return (!!ordered.users) ? {
-      // projects: ordered.users.projects,
-      firstName: ordered.users[0].firstName , 
-      lastName: ordered.users[0].lastName
-    } : {}
+    return !!ordered.task
+      ? {
+          // projects: ordered.users.projects,
+          createdAt: moment(ordered.task[1].createdAt.toDate()).format(
+            "MMMM Do YYYY, h:mm:ss a"
+          ),
+          taskDetail: ordered.task[0].taskDetail,
+          taskTitle: ordered.task[0].taskTitle
+        }
+      : {};
   })
-)(Settings)
+)(History)

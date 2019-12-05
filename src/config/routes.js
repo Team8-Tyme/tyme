@@ -4,14 +4,19 @@ import CreateTask from "../components/tasks/CreateTask"
 import AddHabitForm from "../components/habits/AddHabitForm";
 import HabitList from "../components/habits/HabitList";
 import HabitStreaks from "../components/habits/HabitStreaks";
-import Settings from "../components/pages/Settings"
+import Settings from "../components/pages/Settings";
+import History from "../components/pages/History";
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import AddIcon from '@material-ui/icons/Add'
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import ListAltIcon from "@material-ui/icons/ListAlt";
+
 import TimelineRoundedIcon from "@material-ui/icons/TimelineRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import HistoryIcon from "@material-ui/icons/History";
+import SettingsIcon from "@material-ui/icons/Settings";
+
 const mainRoutes = [
   {
     path: "/dashboard",
@@ -49,50 +54,19 @@ const mainRoutes = [
     icon: TimelineRoundedIcon,
     component: HabitStreaks
   },
-  {
+{
     path: "/settings",
     name: "Settings",
-    mini: "UP",
-    icon: SettingsRoundedIcon,
+    mini: "Setting",
+    icon: SettingsIcon,
     component: Settings
-  }
-
-  //   {
-  //     path: "/tables/members",
-  //     name: "Members",
-  //     mini: "GP",
-  //     icon: GroupIcon,
-  //     component: ReactTables
-  //   },
-  //   {
-  //     path: "/projects",
-  //     name: "Projects",
-  //     mini: "P",
-  //     icon: WorkIcon,
-  //     component: ProjectsPage
-  //   },
-  //   { path: "/calendar",
-  //     name: "Calendar",
-  //     mini: "CA",
-  //     icon: DateRange,
-  //     component: Calendar
-  //   },
-  //   { path: "/stats",
-  //     name: "Stats",
-  //     mini: "S",
-  //     icon: EqualizerIcon,
-  //     component: Stats
-  //   },
-  //   { path: "/chat",
-  //     name: "Chat",
-  //     mini: "C",
-  //     icon: ChatIcon,
-  //     component: Calendar
-  //   },
-  //    { redirect: true,
-  //      path: "/",
-  //      pathTo: "/dashboard",
-  //      name: "Dashboard"
-  //    }
+  },
+  {
+    path: "/history",
+    name: "History",
+    mini: "Hist",
+    icon: HistoryIcon,
+    component: History
+  },
 ];
 export default mainRoutes;
