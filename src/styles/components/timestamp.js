@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
-import history from '../../components/pages/History';
+import history from '../../components/pages/history';
 // import { Timestamp } from '@firebase/firestore-types';
 
 
