@@ -35,7 +35,7 @@ export default class HabitStreaks extends Component {
         <div className="days">{dayGrids}</div>
 
         <Button>
-          <Link to="/dashboard">Close</Link>
+          <Link to="/habit-list">Close</Link>
         </Button>
       </Paper>
     );

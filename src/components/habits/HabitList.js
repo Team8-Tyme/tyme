@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Habit from "./Habit.js";
-
 import "../../styles/App.css";
 
 export default class Home extends Component {

@@ -2,15 +2,16 @@
 import Dashboard from "../components/dashboard/Dashboard";
 import CreateTask from "../components/tasks/CreateTask"
 import AddHabitForm from "../components/habits/AddHabitForm";
-import Home from "../components/habits/HabitList";
-import History from "../components/habits/HabitStreaks";
-
+import HabitList from "../components/habits/HabitList";
+import HabitStreaks from "../components/habits/HabitStreaks";
+import Settings from "../components/pages/Settings"
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import AddIcon from '@material-ui/icons/Add'
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import ListAltIcon from "@material-ui/icons/ListAlt";
-import HistoryIcon from "@material-ui/icons/History";
+import TimelineRoundedIcon from "@material-ui/icons/TimelineRounded";
+import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 const mainRoutes = [
   {
     path: "/dashboard",
@@ -39,16 +40,22 @@ const mainRoutes = [
     name: "Habit List",
     mini: "UP",
     icon: ListAltIcon,
-    component: Home
+    component: HabitList
   },
   {
     path: "/view-history/:id",
     name: "Habit History",
     mini: "UP",
-    icon: HistoryIcon,
-    component: History
+    icon: TimelineRoundedIcon,
+    component: HabitStreaks
   },
-
+  {
+    path: "/settings",
+    name: "Settings",
+    mini: "UP",
+    icon: SettingsRoundedIcon,
+    component: Settings
+  }
 
   //   {
   //     path: "/tables/members",
