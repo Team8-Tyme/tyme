@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createBrowserHistory } from "history";
 import { createTask } from "../../store/actions/taskActions";
 import { withRouter } from "react-router-dom";
 

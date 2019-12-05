@@ -6,8 +6,10 @@ export const createTask = (taskTitle, taskDetail)  => {
         firestore
           .collection("task")
           .add({
+            createdAt: firestore.Timestamp.now(),
             taskTitle: taskTitle,
-            taskDetail: taskDetail
+            taskDetail: taskDetail,
+    
           })
           .then(() => {
             dispatch({ type: "CREATE_TASK", taskTitle, taskDetail });

@@ -11,9 +11,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import AddIcon from '@material-ui/icons/Add'
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import ListAltIcon from "@material-ui/icons/ListAlt";
-
 import TimelineRoundedIcon from "@material-ui/icons/TimelineRounded";
-import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import HistoryIcon from "@material-ui/icons/History";
 import SettingsIcon from "@material-ui/icons/Settings";
 
@@ -48,13 +46,13 @@ const mainRoutes = [
     component: HabitList
   },
   {
-    path: "/view-history/:id",
-    name: "Habit History",
+    path: "/view-history/18748971677",
+    name: "Habit Streaks",
     mini: "UP",
     icon: TimelineRoundedIcon,
     component: HabitStreaks
   },
-{
+  {
     path: "/settings",
     name: "Settings",
     mini: "Setting",
@@ -67,6 +65,6 @@ const mainRoutes = [
     mini: "Hist",
     icon: HistoryIcon,
     component: History
-  },
+  }
 ];
 export default mainRoutes;
