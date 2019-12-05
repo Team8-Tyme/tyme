@@ -15,12 +15,14 @@ export const createTask = (taskTitle, taskDetail)  => {
           .catch(err => {
             dispatch({ type: "CREATE_TASK_ERROR", err });
           });
+
+        // add created task to user notification
         firestore
         .collection("users")
         .doc(firebase.auth().currentUser.uid)
         .update({
           notifications: firebase.firestore.FieldValue.arrayUnion({
-            title: "Created Task!",
+            title: "Created Task: \""+taskTitle+"\"!",
             created: firestore.Timestamp.now()
           })
         });
