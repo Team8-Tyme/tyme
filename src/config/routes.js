@@ -46,7 +46,7 @@ const mainRoutes = [
     component: HabitList
   },
   {
-    path: "/view-history/18748971677",
+    path: "/view-history/:id",
     name: "Habit Streaks",
     mini: "UP",
     icon: TimelineRoundedIcon,
