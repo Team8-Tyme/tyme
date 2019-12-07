@@ -28,9 +28,6 @@ export const signIn = (email, password) => {
           var token = result.credential.accessToken;
           // The signed-in user info.
           var user = result.user;
-
-          console.log(token);
-          console.log(user);
           // ...
         })
         .catch(function(error) {

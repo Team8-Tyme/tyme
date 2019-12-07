@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,7 +15,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
   body: {
-    backgroundColor: "purple"
+    backgroundColor: "black"
   },
   root: {
     flexGrow: 1,
@@ -43,7 +44,7 @@ export default function ButtonAppBar() {
   const auth = useSelector(state => state.firebase.auth);
   const authError = useSelector(state => state.auth.authError);
 
-  if (auth.uid) return <Redirect to="/dashboard" />;
+  if (auth.uid) return <Redirect to="/dashboard"/>;
   return (
     <div className={classes.root}>
       <AppBar position='static' style={{ backgroundColor: "black" }}>

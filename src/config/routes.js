@@ -1,17 +1,19 @@
+  
 import Dashboard from "../components/dashboard/Dashboard";
-import History from "../components/pages/history.js";
-import CreateTask from "../components/tasks/CreateTask";
+import CreateTask from "../components/tasks/CreateTask"
+import AddHabitForm from "../components/habits/AddHabitForm";
+import HabitList from "../components/habits/HabitList";
+import HabitStreaks from "../components/habits/HabitStreaks";
 import Settings from "../components/pages/Settings";
-
+import History from "../components/pages/History";
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import WorkIcon from "@material-ui/icons/Work";
-
+import AddIcon from '@material-ui/icons/Add'
+import PostAddIcon from "@material-ui/icons/PostAdd";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import TimelineRoundedIcon from "@material-ui/icons/TimelineRounded";
 import HistoryIcon from "@material-ui/icons/History";
-
 import SettingsIcon from "@material-ui/icons/Settings";
-import AddIcon from "@material-ui/icons/Add";
-import TaskDetail from "../components/tasks/TaskDetail";
 
 const mainRoutes = [
   {
@@ -21,66 +23,48 @@ const mainRoutes = [
     mini: "PD",
     component: Dashboard
   },
+
   {
     path: "/create",
     name: "Create Task",
     mini: "UP",
-    icon: WorkIcon,
+    icon: AddIcon,
     component: CreateTask
   },
-
   {
-    path: "/history",
-    name: "History",
-    icon: HistoryIcon,
+    path: "/add-habit",
+    name: "Add Habit",
     mini: "UP",
-    component: History
+    icon: PostAddIcon,
+    component: AddHabitForm
   },
-
+  {
+    path: "/habit-list",
+    name: "Habit List",
+    mini: "UP",
+    icon: ListAltIcon,
+    component: HabitList
+  },
+  {
+    path: "/view-history/:id",
+    name: "Habit Streaks",
+    mini: "UP",
+    icon: TimelineRoundedIcon,
+    component: HabitStreaks
+  },
   {
     path: "/settings",
     name: "Settings",
     mini: "Setting",
     icon: SettingsIcon,
     component: Settings
+  },
+  {
+    path: "/history",
+    name: "History",
+    mini: "Hist",
+    icon: HistoryIcon,
+    component: History
   }
-
-  //   {
-  //     path: "/tables/members",
-  //     name: "Members",
-  //     mini: "GP",
-  //     icon: GroupIcon,
-  //     component: ReactTables
-  //   },
-  //   {
-  //     path: "/projects",
-  //     name: "Projects",
-  //     mini: "P",
-  //     icon: WorkIcon,
-  //     component: ProjectsPage
-  //   },
-  //   { path: "/calendar",
-  //     name: "Calendar",
-  //     mini: "CA",
-  //     icon: DateRange,
-  //     component: Calendar
-  //   },
-  //   { path: "/stats",
-  //     name: "Stats",
-  //     mini: "S",
-  //     icon: EqualizerIcon,
-  //     component: Stats
-  //   },
-  //   { path: "/chat",
-  //     name: "Chat",
-  //     mini: "C",
-  //     icon: ChatIcon,
-  //     component: Calendar
-  //   },
-  //    { redirect: true,
-  //      path: "/",
-  //      pathTo: "/dashboard",
-  //      name: "Dashboard"
-  //    }
 ];
 export default mainRoutes;

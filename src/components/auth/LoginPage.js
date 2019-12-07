@@ -42,8 +42,8 @@ const LogIn = () => {
   const googleLogIn = e => {
     dispatch(signInWithGoogle());
   }; 
-
-  if (auth.gituid) return <Redirect to="/dashboard" />;
+ 
+  if (auth.uid) return <Redirect to="/dashboard" />;
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
