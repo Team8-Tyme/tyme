@@ -16,13 +16,13 @@ import TaskList from "../tasks/TaskList";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     marginTop: "200px"
   }
 }));
-
 
 const Dashboard = ({ tasks, auth, notifications }) => {
   const classes = useStyles();

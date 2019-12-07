@@ -57,7 +57,7 @@ export default compose(
   ])),
   connect(({firestore: {ordered}}) => {
     return (!!ordered.users) ? {
-      firstName: ordered.users[0].firstName , 
+      firstName: ordered.users[0].firstName, 
       lastName: ordered.users[0].lastName
     } : {}
   })

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useDispatch } from "react-redux";
 import { createTask } from "../../store/actions/taskActions";
 import { withRouter } from "react-router-dom";
@@ -34,6 +35,7 @@ const CreateTask = props => {
   const [taskTitle, setTitle] = useState("");
   const [taskDetail, setDetail] = useState("");
   const dispatch = useDispatch();
+  
   const handleTitleChange = e => {
     setTitle(e.target.value);
   };
@@ -99,3 +101,4 @@ const CreateTask = props => {
 };
 
 export default withRouter(CreateTask);
+

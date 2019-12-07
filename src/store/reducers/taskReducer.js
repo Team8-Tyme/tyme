@@ -1,4 +1,3 @@
-
 const taskReducer = (state = {}, action) => {
   switch (action.type) {
     case 'CREATE_TASK_SUCCESS':

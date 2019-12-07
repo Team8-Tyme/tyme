@@ -3,6 +3,8 @@ import { Typography } from "@material-ui/core";
 import TaskSummary from "./TaskSummary";
 
 const TaskList = ({ tasks }) => {
+  const classes = useStyles();
+
   return (
     <div>
       <Typography>Backlog</Typography>
@@ -13,5 +15,4 @@ const TaskList = ({ tasks }) => {
     </div>
   );
 };
-
 export default TaskList;
